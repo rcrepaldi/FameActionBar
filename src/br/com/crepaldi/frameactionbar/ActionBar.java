@@ -2,8 +2,6 @@ package br.com.crepaldi.frameactionbar;
 
 import java.awt.Color;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import br.com.crepaldi.sample.MyComponentListener;
@@ -12,28 +10,21 @@ import br.com.crepaldi.sample.Principal;
 public class ActionBar {
 	
 	private Principal principal;
-	private int height;
+	private int height = 45;
 	private JPanel panel;
-	private Color color;
+	private IconMore iconMore;
+	private Color color = Color.decode("#2196F3");;
 	
 	public ActionBar(Principal principal){
 		this.principal = principal;
-		
+
 		panel = new JPanel();
-		height = 45;
-		color = Color.decode("#2196F3");
-		
-		System.out.println("heigth " + getHeight());
-	
-		JLabel iconMoreVert = new JLabel("");
-		iconMoreVert.setIcon(new ImageIcon(Principal.class.getResource("/br/com/crepaldi/frameactionbar/icons/ic_more_vert_white_24dp.png")));
-		iconMoreVert.setBounds(principal.getWidth()-50, 0, 30, getHeight());
-		iconMoreVert.setBackground(Color.decode("#c1c1c1"));
-		principal.add(iconMoreVert);
-		
+		iconMore = new IconMore(this, principal);
 	}
 	
-	
+	public void setIconMore(String imagePath){
+		iconMore.setImage(imagePath);
+	}
 	
 	public JPanel getPanel() {
 		return panel;

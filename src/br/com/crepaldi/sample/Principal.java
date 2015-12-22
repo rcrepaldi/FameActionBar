@@ -45,6 +45,9 @@ public class Principal extends JFrame {
 		
 		/** Create Frame actionBar **/
 		ActionBar actionBar = new ActionBar(this);
+		//actionBar.setIconMore("/br/com/crepaldi/frameactionbar/icons/ic_more_vert_black_36dp.png");
 		actionBar.show();
+		
+		
 	}
 }
