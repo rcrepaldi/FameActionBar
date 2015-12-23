@@ -52,5 +52,7 @@ public class Principal extends JFrame {
 		//actionBar.setTitle("Erasmos goy!");
 		actionBar.show();
 		
+		//ßactionBar.onClick
+		
 	}
 }
