@@ -2,53 +2,91 @@ package br.com.crepaldi.frameactionbar;
 
 import java.awt.Color;
 
-import javax.swing.JPanel;
+import javax.swing.JFrame;
 
-import br.com.crepaldi.sample.MyComponentListener;
-import br.com.crepaldi.sample.Principal;
+import br.com.crepaldi.frameactionbar.elements.IconMore;
+import br.com.crepaldi.frameactionbar.elements.MyPanel;
+import br.com.crepaldi.frameactionbar.elements.Title;
+import br.com.crepaldi.frameactionbar.interfaces.ABInterface;
+import br.com.crepaldi.frameactionbar.objects.MyComponentListener;
 
-public class ActionBar {
+public class ActionBar implements ABInterface {
 	
-	private Principal principal;
-	private int height = 45;
-	private JPanel panel;
+	private JFrame jFrame;
+	private MyPanel myPanel;
 	private IconMore iconMore;
-	private Color color = Color.decode("#2196F3");;
+	private Title title;
 	
-	public ActionBar(Principal principal){
-		this.principal = principal;
+	public static int LIGHT = 0;
+	public static int DARK = 1;
+	
+	public ActionBar(JFrame jFrame){
+		this.jFrame = jFrame;
 
-		panel = new JPanel();
-		iconMore = new IconMore(this, principal);
+		// Cria os componentes que fazem parte da ActionBar
+		myPanel = new MyPanel(this);
+		iconMore = new IconMore(this);
+		title = new Title(this);
+		
+		// Adiciona um ouvinte que alinha os componentes ao redimensiona a janela
+		jFrame.addComponentListener(new MyComponentListener(jFrame, this));
+	}
+
+	public Title getTitleComponent() {
+		return title.getTitleComponent();
+	}
+	public String getTitle(){
+		return title.getTitle();
+	}
+	
+	public void setTitle(String str){
+		title.setTitle(str);
+	}
+	
+	public JFrame getJFrame(){
+		return jFrame;
+	}
+	
+	public MyPanel getPanel(){
+		return myPanel;
+	}
+
+	public IconMore getIconMore(){
+		return iconMore;
+	}
+	
+	public void setBackgroundColor(Color color){
+		myPanel.setBackgroundColor(color);
+	}
+	
+	public JFrame getFrameContext(){
+		return jFrame;
 	}
 	
 	public void setIconMore(String imagePath){
 		iconMore.setImage(imagePath);
 	}
 	
-	public JPanel getPanel() {
-		return panel;
-	}
-	
 	public void setHeight(int height){
-		this.height = height;
+		myPanel.setHeight(height);
 	}
 	
 	public int getHeight(){
-		return height;
+		return myPanel.getHeight();
 	}
 	
-	public void setColor(Color color){
-		this.color = color;
+	public int getWidth(){
+		return myPanel.getWidth();
+	}
+	
+	public void setTheme(int theme){
+		iconMore.setTheme(theme);
+		title.setTheme(theme);
 	}
 	
 	public void show(){
-		
-		panel.setBackground(color);
-		panel.setBounds(0, 0, principal.getWidth(), getHeight());
-	
-		principal.addComponentListener(new MyComponentListener(principal, panel));
-		
-		principal.add(panel);
+		myPanel.add(iconMore);
+		myPanel.add(title);
+		jFrame.add(myPanel);
 	}
 }

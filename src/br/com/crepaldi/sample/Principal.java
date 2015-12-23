@@ -45,9 +45,12 @@ public class Principal extends JFrame {
 		
 		/** Create Frame actionBar **/
 		ActionBar actionBar = new ActionBar(this);
-		//actionBar.setIconMore("/br/com/crepaldi/frameactionbar/icons/ic_more_vert_black_36dp.png");
+		//actionBar.setTheme(ActionBar.DARK);
+		//actionBar.setBackgroundColor(Color.decode("#c1c1c1"));
+		//actionBar.setIconMore("/br/com/crepaldi/frameactionbar/icons/ic_mode_edit_black_36dp.png");
+		//actionBar.setHeight(100);
+		//actionBar.setTitle("Erasmos goy!");
 		actionBar.show();
-		
 		
 	}
 }
