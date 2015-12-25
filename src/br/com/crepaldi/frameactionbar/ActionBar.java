@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
+import br.com.crepaldi.frameactionbar.elements.IconBack;
 import br.com.crepaldi.frameactionbar.elements.IconMore;
 import br.com.crepaldi.frameactionbar.elements.MyPanel;
 import br.com.crepaldi.frameactionbar.elements.Title;
@@ -15,7 +16,8 @@ public class ActionBar implements ABInterface {
 	private JFrame jFrame;
 	private MyPanel myPanel;
 	private IconMore iconMore;
-	private Title title;
+	private IconBack iconBack;
+	public Title title;
 	
 	public static int LIGHT = 0;
 	public static int DARK = 1;
@@ -25,15 +27,23 @@ public class ActionBar implements ABInterface {
 
 		// Cria os componentes que fazem parte da ActionBar
 		myPanel = new MyPanel(this);
-		iconMore = new IconMore(this);
 		title = new Title(this);
+		iconMore = new IconMore(this);
 		
 		// Adiciona um ouvinte que alinha os componentes ao redimensiona a janela
 		jFrame.addComponentListener(new MyComponentListener(jFrame, this));
 	}
 
+	public IconBack getIconBack(){
+		return iconBack;
+	}
+	
+	public void addIconBack() {
+		iconBack = new IconBack(this);
+	}
+	
 	public Title getTitleComponent() {
-		return title.getTitleComponent();
+		return title;
 	}
 	public String getTitle(){
 		return title.getTitle();

@@ -64,7 +64,7 @@ public class IconMore extends JLabel {
 	private void eventsComponents(){
 		this.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent event) {
-				System.out.println("Clicous");
+				System.out.println("Clicou");
 			}
 		});
 	}

@@ -19,6 +19,19 @@ public class MyPanel extends JPanel{
 		this.setBackground(color);
 		this.setBounds(0, 0, actionBar.getFrameContext().getWidth(), height);
 		this.setLayout(null);
+
+		// TODO shadow actionbar
+		/*
+		JPanel panelShadow = new JPanel();
+		panelShadow.setBounds(0, this.getHeight(), this.getWidth(), 10);
+		panelShadow.setBackground(Color.DARK_GRAY);
+		actionBar.getFrameContext().add(panelShadow);
+		
+		JLabel labelShadow = new JLabel();
+		ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/shadow_actionbar.png"));
+		labelShadow.setIcon(imageIcon);
+		this.setBounds(0, this.getHeight(), this.getWidth(), 10);
+		*/
 	}
 
 	public void setBackgroundColor(Color color){

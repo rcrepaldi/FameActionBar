@@ -3,12 +3,8 @@ package br.com.crepaldi.sample;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class Teste extends JFrame {
@@ -42,18 +38,5 @@ public class Teste extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel label = new JLabel("MEU MENU");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setBounds(359, 6, 85, 16);
-		contentPane.add(label);
-		
-		JLabel lblRodrigo = new JLabel("Rodrigo");
-		lblRodrigo.setFont(new Font("Roboto", Font.BOLD, 13));
-		lblRodrigo.setBackground(Color.BLUE);
-		lblRodrigo.setForeground(Color.RED);
-		lblRodrigo.setBounds(383, 34, 61, 115);
-		contentPane.add(lblRodrigo);
-
-		
 	}
 }
