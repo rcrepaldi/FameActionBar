@@ -10,6 +10,7 @@ import br.com.crepaldi.frameactionbar.ActionBar;
 public class IconBack extends JLabel{
 	
 	private ActionBar actionBar;
+	private int marginTitleLeft = 40;
 	
 	public IconBack(ActionBar actionBar){
 		super();
@@ -30,8 +31,12 @@ public class IconBack extends JLabel{
 		this.setIcon(imageIcon);
 		this.setBounds(10, 0, 30, actionBar.getHeight());
 		
-		actionBar.getTitleComponent().setMarginLeft(40);
+		actionBar.getTitleComponent().setMarginLeft(marginTitleLeft);
 		
 		actionBar.getPanel().add(this);
+	}
+	
+	public int getMarginTitle(){
+		return marginTitleLeft;
 	}
 }

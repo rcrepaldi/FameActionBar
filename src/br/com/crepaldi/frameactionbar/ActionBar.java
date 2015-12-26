@@ -17,7 +17,7 @@ public class ActionBar implements ABInterface {
 	private MyPanel myPanel;
 	private IconMore iconMore;
 	private IconBack iconBack;
-	public Title title;
+	private Title title;
 	
 	public static int LIGHT = 0;
 	public static int DARK = 1;

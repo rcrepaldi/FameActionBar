@@ -9,11 +9,14 @@ import br.com.crepaldi.frameactionbar.ActionBar;
 @SuppressWarnings("serial")
 public class MyPanel extends JPanel{
 	
+	private ActionBar actionBar;
 	private Color color = Color.decode("#2196F3");
 	private int height = 45;
 	
 	public MyPanel(ActionBar actionBar){
 		super();
+		
+		this.actionBar = actionBar;
 		
 		// Create a panel background with params default
 		this.setBackground(color);
@@ -45,6 +48,7 @@ public class MyPanel extends JPanel{
 	
 	public void setHeight(int height){
 		this.height = height;
+		actionBar.getTitleComponent().update();
 	}
 
 	public int getHeight(){

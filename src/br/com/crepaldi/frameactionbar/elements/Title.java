@@ -38,6 +38,10 @@ public class Title extends JLabel {
 		return title;
 	}
 	
+	public void update(){
+		this.setBounds(actionBar.getIconBack().getMarginTitle(), 0, actionBar.getWidth(), actionBar.getPanel().getHeight());
+	}
+	
 	public void setTheme(int theme){
 		if (theme == ActionBar.DARK) {
 			this.setForeground(Color.BLACK);
