@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import br.com.crepaldi.frameactionbar.elements.IconBack;
 import br.com.crepaldi.frameactionbar.elements.IconMore;
 import br.com.crepaldi.frameactionbar.elements.MyPanel;
+import br.com.crepaldi.frameactionbar.elements.ShadowAB;
 import br.com.crepaldi.frameactionbar.elements.Title;
 import br.com.crepaldi.frameactionbar.interfaces.ABInterface;
 import br.com.crepaldi.frameactionbar.objects.MyComponentListener;
@@ -18,6 +19,7 @@ public class ActionBar implements ABInterface {
 	private IconMore iconMore;
 	private IconBack iconBack;
 	private Title title;
+	private ShadowAB panelShadow;
 	
 	public static int LIGHT = 0;
 	public static int DARK = 1;
@@ -29,11 +31,16 @@ public class ActionBar implements ABInterface {
 		myPanel = new MyPanel(this);
 		title = new Title(this);
 		iconMore = new IconMore(this);
-		
+        panelShadow = new ShadowAB(this);
+
 		// Adiciona um ouvinte que alinha os componentes ao redimensiona a janela
 		jFrame.addComponentListener(new MyComponentListener(jFrame, this));
 	}
 
+	public ShadowAB getShadow() {
+		return panelShadow;
+	}
+	
 	public IconBack getIconBack(){
 		return iconBack;
 	}
@@ -42,11 +49,11 @@ public class ActionBar implements ABInterface {
 		iconBack = new IconBack(this);
 	}
 	
-	public Title getTitleComponent() {
+	public Title getTitleView() {
 		return title;
 	}
-	public String getTitle(){
-		return title.getTitle();
+	public String getTextTitle(){
+		return title.getTextTitle();
 	}
 	
 	public void setTitle(String str){
@@ -98,5 +105,6 @@ public class ActionBar implements ABInterface {
 		myPanel.add(iconMore);
 		myPanel.add(title);
 		jFrame.add(myPanel);
+		myPanel.add(panelShadow);
 	}
 }

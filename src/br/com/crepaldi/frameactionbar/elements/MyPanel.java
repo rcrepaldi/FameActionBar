@@ -48,7 +48,7 @@ public class MyPanel extends JPanel{
 	
 	public void setHeight(int height){
 		this.height = height;
-		actionBar.getTitleComponent().update();
+		actionBar.getTitleView().update();
 	}
 
 	public int getHeight(){

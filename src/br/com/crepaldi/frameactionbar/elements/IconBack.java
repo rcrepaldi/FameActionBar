@@ -31,7 +31,7 @@ public class IconBack extends JLabel{
 		this.setIcon(imageIcon);
 		this.setBounds(10, 0, 30, actionBar.getHeight());
 		
-		actionBar.getTitleComponent().setMarginLeft(marginTitleLeft);
+		actionBar.getTitleView().setMarginLeft(marginTitleLeft);
 		
 		actionBar.getPanel().add(this);
 	}

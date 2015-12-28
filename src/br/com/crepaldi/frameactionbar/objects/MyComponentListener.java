@@ -21,7 +21,7 @@ public class MyComponentListener implements ComponentListener {
 	public void componentResized(ComponentEvent e) {
 		
 		// Update width actionBar background
-		actionBar.getPanel().setBounds(0, 0, jFrame.getWidth(), actionBar.getPanel().getHeight());
+		actionBar.getPanel().setSize(jFrame.getWidth(), actionBar.getPanel().getHeight());
 		
 		// Update position IconMore
 		actionBar.getIconMore().setBounds(jFrame.getWidth()-50, 0, 30, actionBar.getPanel().getHeight());

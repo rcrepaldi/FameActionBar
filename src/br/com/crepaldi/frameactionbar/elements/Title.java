@@ -11,7 +11,7 @@ import br.com.crepaldi.frameactionbar.ActionBar;
 @SuppressWarnings("serial")
 public class Title extends JLabel {
 
-	private String title = "Insert the title";
+	private String title = "Title of the action bar";
 	private ActionBar actionBar;
 
 	public Title(ActionBar actionBar){
@@ -34,7 +34,7 @@ public class Title extends JLabel {
 		this.setText(str);
 	}
 	
-	public String getTitle(){
+	public String getTextTitle(){
 		return title;
 	}
 	

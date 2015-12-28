@@ -1,11 +1,7 @@
 package br.com.crepaldi.sample;
 import java.awt.EventQueue;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -53,27 +49,9 @@ public class Principal extends JFrame {
 		//actionBar.setTheme(ActionBar.DARK);
 		//actionBar.setBackgroundColor(Color.decode("#c1c1c1"));
 		//actionBar.setIconMore("/br/com/crepaldi/frameactionbar/icons/ic_mode_edit_black_36dp.png");
-		actionBar.setHeight(100);
+		//actionBar.setHeight(100);
 		//actionBar.setTitle("Erasmos goy!");
 		actionBar.show();
-		
-		//ßactionBar.onClick
-		
-		
-		
-		JLabel lbl = new JLabel("Teste");
-		lbl.setBounds(100, 70, 100, 40);
-		add(lbl);
-		
-		JButton btn = new JButton("Clicar");
-		btn.setBounds(100, 100, 100, 40);
-		add(btn);
-		
-		btn.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent event) {
-				lbl.setText("Mudou");
-				lbl.setBounds(150, 70, 100, 40);
-			}
-		});
+
 	}
 }
