@@ -1,8 +1,12 @@
 package br.com.crepaldi.sample;
 import java.awt.EventQueue;
 
+import javax.naming.Context;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import br.com.crepaldi.frameactionbar.ActionBar;
@@ -52,6 +56,18 @@ public class Principal extends JFrame {
 		//actionBar.setHeight(100);
 		//actionBar.setTitle("Erasmos goy!");
 		actionBar.show();
+		
+		
+		
+		
+		
+		// Create icone more with params default
+		final JLabel homer = new JLabel("");
+		final ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/homer.png"));
+		homer.setIcon(imageIcon);
+		homer.setBounds(contentPane.getWidth()/2, contentPane.getHeight() /2 , getWidth(), getHeight());
+		homer.setHorizontalAlignment(SwingConstants.CENTER);
+		add(homer);
 
 	}
 }
