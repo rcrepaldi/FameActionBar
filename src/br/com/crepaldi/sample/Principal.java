@@ -1,5 +1,8 @@
 package br.com.crepaldi.sample;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.naming.Context;
 import javax.swing.ImageIcon;
@@ -10,6 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import br.com.crepaldi.frameactionbar.ActionBar;
+import br.com.crepaldi.frameactionbar.elements.Animation;
 
 
 @SuppressWarnings("serial")
@@ -62,12 +66,26 @@ public class Principal extends JFrame {
 		
 		
 		// Create icone more with params default
-		final JLabel homer = new JLabel("");
-		final ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/homer.png"));
+		JLabel homer = new JLabel("");
+		ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/homer.png"));
 		homer.setIcon(imageIcon);
 		homer.setBounds(contentPane.getWidth()/2, contentPane.getHeight() /2 , getWidth(), getHeight());
 		homer.setHorizontalAlignment(SwingConstants.CENTER);
 		add(homer);
-
+		
+		
+		int panelLength = 150;
+		JPanel menuPanel = new JPanel();
+		menuPanel.setBounds(-panelLength+3, actionBar.getHeight(), panelLength, getHeight() - actionBar.getHeight());
+		menuPanel.setBackground(new Color(64, 64, 64, 70));
+		add(menuPanel);
+		
+		Animation animation = new Animation(menuPanel);
+		actionBar.getIconBack().addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent event) {
+				menuPanel.setBackground(new Color(64, 64, 64));
+				animation.animationStartSlide();
+			}
+		});
 	}
 }
