@@ -1,25 +1,20 @@
 package br.com.crepaldi.sample;
-import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.naming.Context;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import br.com.crepaldi.frameactionbar.ActionBar;
-import br.com.crepaldi.frameactionbar.elements.Animation;
 
 
 @SuppressWarnings("serial")
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
+	//private JLabel homer;
 
 	/**
 	 * Inicia a aplicação
@@ -50,7 +45,7 @@ public class Principal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		/** Create Frame actionBar **/
 		ActionBar actionBar = new ActionBar(this);
 		actionBar.addIconBack();
@@ -61,25 +56,32 @@ public class Principal extends JFrame {
 		//actionBar.setTitle("Erasmos goy!");
 		actionBar.show();
 		
+		/** Callback event click icon menu **/
+		actionBar.setOnClickIconMenu(new MouseAdapter() {
+			public void mouseClicked(MouseEvent event) {
+				System.out.println("Clicou Icone");
+			}
+		});
 		
 		
-		
-		
+		/*
 		// Create icone more with params default
-		JLabel homer = new JLabel("");
+		homer = new JLabel("");
 		ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/homer.png"));
 		homer.setIcon(imageIcon);
 		homer.setBounds(contentPane.getWidth()/2, contentPane.getHeight() /2 , getWidth(), getHeight());
 		homer.setHorizontalAlignment(SwingConstants.CENTER);
 		add(homer);
-		
-		
+		*/
+
+
+		/*		
 		int panelLength = 150;
 		JPanel menuPanel = new JPanel();
 		menuPanel.setBounds(-panelLength+3, actionBar.getHeight(), panelLength, getHeight() - actionBar.getHeight());
 		menuPanel.setBackground(new Color(64, 64, 64, 70));
 		add(menuPanel);
-		
+
 		Animation animation = new Animation(menuPanel);
 		actionBar.getIconBack().addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent event) {
@@ -87,5 +89,6 @@ public class Principal extends JFrame {
 				animation.animationStartSlide();
 			}
 		});
+		*/
 	}
 }

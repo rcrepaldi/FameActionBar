@@ -27,7 +27,7 @@ public class IconBack extends JLabel{
 	private void initElements(){
 
 		// Create icone more with params default
-		ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/ic_more_vert_white_24dp.png"));
+		ImageIcon imageIcon = new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/ic_menu_white_24dp.png"));
 		this.setIcon(imageIcon);
 		this.setBounds(10, 0, 30, actionBar.getHeight());
 		
@@ -38,5 +38,17 @@ public class IconBack extends JLabel{
 	
 	public int getMarginTitle(){
 		return marginTitleLeft;
+	}
+
+	/**
+	 * Set theme in icon more
+	 * @param theme
+	 */
+	public void setTheme(int theme){
+		if (theme == ActionBar.DARK) {
+			this.setIcon(new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/ic_menu_black_24dp.png")));
+		} else {
+			this.setIcon(new ImageIcon(Context.class.getResource("/br/com/crepaldi/frameactionbar/icons/ic_menu_white_24dp.png")));
+		}
 	}
 }

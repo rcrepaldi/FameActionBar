@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 public class Animation {
@@ -15,25 +16,34 @@ public class Animation {
 	    this.panel = panel;
 
     }
-    
+
     public void animationStartSlide(){
     	
     	slide = -panel.getWidth()+3;
 
-		Timer timer = new Timer(0, new ActionListener() {
+		Timer timer = new Timer(10, new ActionListener() {
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
-	            
-	        	System.out.println("slide - " + slide);
+	        	SwingUtilities.invokeLater(new Runnable() {
+	                @Override
+	                public void run() {
+	                	System.out.println("slide - " + slide);
 
-	        	if(slide < 0){
-	        		panel.setLocation(slide, panel.getY());//panel.setBounds(slide, 50, panel.getWidth(), panel.getHeight());
-	        	}else{ 
-	        		((Timer)e.getSource()).stop();
-	        	}
+	    	        	if(slide < 0){
+	    	        		panel.setLocation(slide, panel.getY());
+	    	        	}else{ 
+	    	        		((Timer)e.getSource()).stop();
+	    	        	}
+	    	        	
+	            		slide+=4;
+
+
+	    	        	panel.repaint();
+	                }
+	            });	
 	        	
-	        	slide+=10;
-	        	
+
+
 	        	/*
 	        	long duration = System.currentTimeMillis() - startTime;
 	            double progress = (double)duration / (double)RUN_TIME;
@@ -46,12 +56,12 @@ public class Animation {
 	            }
 	            panel.setBounds(0, 50, 200, 200);
 	            */
+
 	        }
 	    });
-		timer.setRepeats(true);
-	    timer.setCoalesce(true);
 	    timer.setInitialDelay(0);
 	    timer.start();
+
     }
 
 }

@@ -1,11 +1,13 @@
 package br.com.crepaldi.frameactionbar;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
 
 import javax.swing.JFrame;
 
 import br.com.crepaldi.frameactionbar.elements.IconBack;
 import br.com.crepaldi.frameactionbar.elements.IconMore;
+import br.com.crepaldi.frameactionbar.elements.MenuNavigation;
 import br.com.crepaldi.frameactionbar.elements.MyPanel;
 import br.com.crepaldi.frameactionbar.elements.ShadowAB;
 import br.com.crepaldi.frameactionbar.elements.Title;
@@ -20,9 +22,11 @@ public class ActionBar implements ABInterface {
 	private IconBack iconBack;
 	private Title title;
 	private ShadowAB panelShadow;
+	public MenuNavigation menuNavigation;
 	
 	public static int LIGHT = 0;
 	public static int DARK = 1;
+
 	
 	public ActionBar(JFrame jFrame){
 		this.jFrame = jFrame;
@@ -31,7 +35,9 @@ public class ActionBar implements ABInterface {
 		myPanel = new MyPanel(this);
 		title = new Title(this);
 		iconMore = new IconMore(this);
-        panelShadow = new ShadowAB(this);
+		menuNavigation = new MenuNavigation(this);
+		panelShadow = new ShadowAB(this);
+        
 
 		// Adiciona um ouvinte que alinha os componentes ao redimensiona a janela
 		jFrame.addComponentListener(new MyComponentListener(jFrame, this));
@@ -98,6 +104,7 @@ public class ActionBar implements ABInterface {
 	
 	public void setTheme(int theme){
 		iconMore.setTheme(theme);
+		iconBack.setTheme(theme);
 		title.setTheme(theme);
 	}
 	
@@ -106,5 +113,13 @@ public class ActionBar implements ABInterface {
 		myPanel.add(title);
 		jFrame.add(myPanel);
 		myPanel.add(panelShadow);
+		jFrame.add(menuNavigation);
+	}
+	
+	@Override
+	public void setOnClickIconMenu(MouseAdapter mouseAdapter) {
+		iconBack.addMouseListener(mouseAdapter);
+		
+		//menuNavigation.open();
 	}
 }
