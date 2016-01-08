@@ -25,9 +25,9 @@ public class MyComponentListener implements ComponentListener {
 		
 		// Update position IconMore
 		actionBar.getIconMore().setBounds(jFrame.getWidth()-50, 0, 30, actionBar.getPanel().getHeight());
-		
-		// Update position Title		
-		//actionBar.getTitleComponent().setBounds(20, 0, actionBar.getWidth(), actionBar.getHeight());
+
+		// Update height Menu Navigation
+		actionBar.getMenuNavigation().setSize(actionBar.getMenuNavigation().getWidth(), actionBar.getFrameContext().getHeight());
 	}
 
 	@Override

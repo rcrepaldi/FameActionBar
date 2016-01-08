@@ -22,7 +22,7 @@ public class ActionBar implements ABInterface {
 	private IconBack iconBack;
 	private Title title;
 	private ShadowAB panelShadow;
-	public MenuNavigation menuNavigation;
+	private MenuNavigation menuNavigation;
 	
 	public static int LIGHT = 0;
 	public static int DARK = 1;
@@ -41,6 +41,10 @@ public class ActionBar implements ABInterface {
 
 		// Adiciona um ouvinte que alinha os componentes ao redimensiona a janela
 		jFrame.addComponentListener(new MyComponentListener(jFrame, this));
+	}
+	
+	public MenuNavigation getMenuNavigation(){
+		return menuNavigation;
 	}
 
 	public ShadowAB getShadow() {
@@ -69,7 +73,7 @@ public class ActionBar implements ABInterface {
 	public JFrame getJFrame(){
 		return jFrame;
 	}
-	
+
 	public MyPanel getPanel(){
 		return myPanel;
 	}
@@ -119,7 +123,5 @@ public class ActionBar implements ABInterface {
 	@Override
 	public void setOnClickIconMenu(MouseAdapter mouseAdapter) {
 		iconBack.addMouseListener(mouseAdapter);
-		
-		//menuNavigation.open();
 	}
 }

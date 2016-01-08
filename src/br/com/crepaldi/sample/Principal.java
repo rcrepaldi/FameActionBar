@@ -59,7 +59,13 @@ public class Principal extends JFrame {
 		/** Callback event click icon menu **/
 		actionBar.setOnClickIconMenu(new MouseAdapter() {
 			public void mouseClicked(MouseEvent event) {
+				
 				System.out.println("Clicou Icone");
+				
+				if(actionBar.getMenuNavigation().isOpenned())
+					actionBar.getMenuNavigation().close();
+				else
+					actionBar.getMenuNavigation().open();
 			}
 		});
 		
