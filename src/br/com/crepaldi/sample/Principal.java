@@ -53,7 +53,7 @@ public class Principal extends JFrame {
 		//actionBar.setBackgroundColor(Color.decode("#c1c1c1"));
 		//actionBar.setIconMore("/br/com/crepaldi/frameactionbar/icons/ic_mode_edit_black_36dp.png");
 		//actionBar.setHeight(100);
-		//actionBar.setTitle("Erasmos goy!");
+		//actionBar.setTitle("write new tittle");
 		actionBar.show();
 		
 		/** Callback event click icon menu **/
