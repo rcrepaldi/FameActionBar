@@ -23,7 +23,7 @@ actionBar.setHeight(100);
 actionBar.setTitle("write new tittle");
 actionBar.show();
 ```
-![GitHub Logo](https://github.com/rcrepaldi/FameActionBar/blob/master/files-readme/full-navigation_open.png "menu navigation open")
+![GitHub Logo](https://github.com/rcrepaldi/FameActionBar/blob/master/files-readme/full-navigation.png "menu navigation open")
 
 ## License
 
