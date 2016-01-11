@@ -25,6 +25,9 @@ actionBar.show();
 ```
 ![GitHub Logo](https://github.com/rcrepaldi/FameActionBar/blob/master/files-readme/full-navigation.png "menu navigation open")
 
+### Additional information
+You will be able to use all the properties of java swing elements for customization
+
 ## License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
